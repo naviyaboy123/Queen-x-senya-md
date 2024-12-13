@@ -1,5 +1,5 @@
-const { cmd } = require('../command');
-
+const config = require('../config')
+const { cmd, commands } = require('../command') 
 // Create an object to store deactivated groups
 let deactivatedGroups = {};
 
@@ -53,14 +53,23 @@ async(conn, mek, m, { from, isGroup, isAdmin, reply }) => {
     }
 });
 
-// Middleware to check if the bot is deactivated for the group
-cmd.middleware(async (mek, m, next) => {
-    const { from, isGroup } = m;
-
-    // Check if the group is deactivated
+// Add this check to all commands you want to restrict
+cmd({
+    pattern: "example",
+    react: "✅",
+    desc: "Example command",
+    category: "general",
+    use: ".example",
+    filename: __filename
+},
+async(conn, mek, m, { from, reply, isGroup }) => {
+    // Check if the bot is deactivated for the group
     if (isGroup && deactivatedGroups[from]) {
-        return await m.reply("The bot is currently deactivated for this group.");
+        return await reply("The bot is currently deactivated for this group. Use `.activate` to enable it.");
     }
 
+    // Normal command functionality
+    await reply("This is an example command.");
+});
     await next();
 });

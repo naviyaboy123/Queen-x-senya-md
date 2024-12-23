@@ -8,6 +8,7 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 
+
 const l = console.log
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
 const fs = require('fs')
@@ -17,13 +18,9 @@ const qrcode = require('qrcode-terminal')
 const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
 const { Sticker, StickerTypes } = require('wa-sticker-formatter');
-const FormData = require('form-data');
-const fileType = require("file-type");
-const path = require('path');
 const axios = require('axios')
 const { File } = require('megajs')
 const process = require('process') 
-
 
 const ownerNumber = ['94764038550']
 

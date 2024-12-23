@@ -29,7 +29,11 @@
     "google-tts-api":"2.0.2",
     "wa-sticker-formatter":"4.4.4",
     "@dark-yasiya/yt-dl.js": "latest",
-    "@blackamda/telegram-image-url": "^1.0.0"
+    "@blackamda/telegram-image-url": "^1.0.0",
+    "@bochilteam/scraper": "4.2.4",
+    "@mrnima/facebook-downloader":"1.0.0",
+    "@mrnima/tiktok-downloader":"1.0.0",
+    "@bochilteam/scraper-sosmed": "1.0.5"
   }
 }
 

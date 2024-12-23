@@ -4,8 +4,8 @@ const yts = require('yt-search');
 
 // Audio Download Command
 cmd({
-    pattern: 'song',
-    desc: 'Download Your Songs.',
+    pattern: 'sindu',
+    desc: 'Download Your Sindus.',
     category: 'download',
     filename: __filename
 }, async (client, message, match, {

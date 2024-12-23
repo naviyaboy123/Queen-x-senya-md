@@ -219,8 +219,8 @@ async function connectToWA() {
             }
         }
 
-        const pluginCommands = require('./command').commands.filter(cmd => cmd.on === 'message');
-        pluginCommands.forEach(async cmd => {
+        const ALLCMDCommands = require('./command').commands.filter(cmd => cmd.on === 'message');
+        ALLCMDCommands.forEach(async cmd => {
             if (messageContent && cmd.on === 'message') {
                 cmd.run(sock, message, smsMessage, {
                     from: chatId, l: l, quoted: message.message.extendedTextMessage ? message.message.extendedTextMessage.contextInfo.participant : '', body: messageContent, isCmd: isCommand, command: cmd, args, q, isGroup, sender: senderId, senderNumber: sender, botNumber2: sock.user.id, botNumber, pushname: message.pushName || message.quoted ? message.quoted.pushName : '', isMe: sock.user.id === senderId, isOwner, groupMetadata, groupName, participants: groupMetadata ? groupMetadata.participants : '', groupAdmins, isBotAdmins: isBotGroupAdmin, isAdmins: isSenderGroupAdmin, reply: (text) => sock.sendMessage(chatId, { text: text }, { quoted: message })

@@ -22,13 +22,13 @@ const l = console.log;
 
 var { updateCMDStore, isbtnID, getCMDStore, getCmdForCmdId, connectdb, input, get, updb, updfb } = require('./lib/database');
 
-if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
+if (!fs.existsSync(__dirname + '/session/creds.json')) {
     if (!config.SESSION_ID) return console.log('Please add your session to SESSION_ID env !!');
     const sessdata = config.SESSION_ID.split("NAVIYA-MD=")[1];
     const filer = File.fromURL('https://mega.nz/file/' + sessdata);
     filer.load((err, data) => {
         if (err) throw err;
-        fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
+        fs.writeFile(__dirname + '/session/creds.json', data, () => {
             console.log('Session download✔️');
         });
     });
